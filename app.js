@@ -1,7 +1,6 @@
 var Express = require('express');
 var Routes = require('./routes');
 
-// TODO: Uncomment when we have internet
 // var TryCatch = require('./trycatch');
 
 var App = module.exports = Express.createServer();
@@ -12,7 +11,6 @@ App.configure(function(){
   App.set('views', __dirname + '/views');
   App.set('view engine', 'jade');
   // This gives us scoped errors with long stack traces
-  // TODO: Uncomment when we have internet
   // App.use(function (req, res, next) {
   //   TryCatch(next, next);
   // });

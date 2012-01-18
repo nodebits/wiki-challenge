@@ -8,26 +8,26 @@ function pathFromName(name) {
   return Path.join(__dirname, "pages", name + ".markdown");
 }
 
-// Load a file from disk and parse out the title and generate the HTML
+// Load a file, parse the title and generate the HTML
 exports.loadPage = function (name, callback) {
-  // Attempt to load the file from disk
   var path = pathFromName(name);
+
   FS.readFile(path, 'utf8', function (err, markdown) {
+
     var exists = true;
     if (err) {
-      // If it's not there, generate a placeholder body
       if (err.code === "ENOENT") {
-        markdown = "# " + name.replace(/_/g, " ") + "\n\n" + 
-                   "This page does not exist yet.  Be the first to write it.";
+        // Generate a placeholder body.
+        markdown = "# " + name.replace(/_/g, " ") +
+          "\n\n" + "This page does not exist yet.";
         exists = false;
       } else {
-        // Forward all other errors on
+        // Forward on all other errors.
         return callback(err);
       }
     }
 
-    // Parse the markdown extracting the first header as the title
-    // and then render as an HTML string
+    // Parse and render the markdown.
     var tree = Markdown.parse(markdown);
     var title = name;
     for (var i = 1, l = tree.length; i < l; i++) {
@@ -39,7 +39,6 @@ exports.loadPage = function (name, callback) {
     }
     var html = Markdown.toHTML(tree);
 
-    // Send back the page as an object
     callback(null, {
       name: name,
       title: title,
@@ -47,6 +46,7 @@ exports.loadPage = function (name, callback) {
       markdown: markdown,
       html: html,
     });
+
   });
 };
 
