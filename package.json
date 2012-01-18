@@ -1,8 +1,10 @@
 {
   "name": "wiki-contest",
   "version": "0.0.0",
-  "author": "Tim Caswell <tim@c9.io>",
   "private": true,
   "dependencies": {
+    "express": "2.5.5",
+    "jade": ">= 0.0.1",
+    "markdown": "~0.3.1"
   }
 }
