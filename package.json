@@ -1,0 +1,8 @@
+{
+  "name": "wiki-contest",
+  "version": "0.0.0",
+  "author": "Tim Caswell <tim@c9.io>",
+  "private": true,
+  "dependencies": {
+  }
+}
