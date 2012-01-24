@@ -6,6 +6,6 @@
     "express": "2.5.5",
     "jade": ">= 0.0.1",
     "markdown": "~0.3.1",
-    "trycatch": "~0.1.0"
+    "trycatch": ">= 0.0.9"
   }
 }
