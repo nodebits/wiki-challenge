@@ -3,7 +3,6 @@ var Routes = require('./routes');
 
 // var TryCatch = require('./trycatch');
 
-//var App = module.exports = Express.createServer();
 var App = Express();
 
 // Configuration
