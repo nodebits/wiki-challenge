@@ -3,7 +3,8 @@ var Routes = require('./routes');
 
 // var TryCatch = require('./trycatch');
 
-var App = module.exports = Express.createServer();
+//var App = module.exports = Express.createServer();
+var App = Express();
 
 // Configuration
 
@@ -34,5 +35,5 @@ App.get('/:name', Routes.view);
 App.get('/:name/edit', Routes.edit);
 App.post('/:name', Routes.save);
 
-App.listen(process.env.PORT || 3000);
-console.log("Express server listening on port %d in %s mode", App.address().port, App.settings.env);
+server = App.listen(process.env.PORT || 3000);
+console.log("Express server listening on port %d in %s mode", server.address().port, App.settings.env);
